@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.Dh1jimFm.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"companyDoc/wvb-ui前端项目结构.md","filePath":"companyDoc/wvb-ui前端项目结构.md"}'),o={name:"companyDoc/wvb-ui前端项目结构.md"};function c(n,r,_,s,i,p){return a(),t("div")}const f=e(o,[["render",c]]);export{d as __pageData,f as default};
