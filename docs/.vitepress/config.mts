@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withSidebar } from 'vitepress-sidebar'
+import { fileURLToPath, URL } from 'node:url'
 
 // VitePress 原生配置
 const vitePressOptions = {
@@ -18,32 +19,25 @@ const vitePressOptions = {
   }
 }
 
-// 侧边栏插件配置
-const vitePressSidebarOptions0 = {
-  documentRootPath: './docs', // 文档根目录路径
-  scanStartPath: 'defaultDoc',
-  resolvePath: '/defaultDoc/',
-  collapsed: true,      // 默认展开侧边栏
-  capitalizeFirst: true  // 标题首字母大写
-}
-const vitePressSidebarOptions1 = {
-  documentRootPath: './docs', // 文档根目录路径
-  scanStartPath: 'defaultDoc',
-  resolvePath: '/defaultDoc/',
-  collapsed: true,      // 默认展开侧边栏
-  capitalizeFirst: true  // 标题首字母大写
-}
-const vitePressSidebarOptions2 = {
-  documentRootPath: './docs', // 文档根目录路径
-  scanStartPath: 'privateDoc',
-  resolvePath: '/privateDoc/',
-  collapsed: true,      // 默认展开侧边栏
-  capitalizeFirst: true  // 标题首字母大写
-}
+// 合并侧边栏配置为一个数组
+const vitePressSidebarOptions = [
+  {
+    documentRootPath: './docs', // 文档根目录路径
+    scanStartPath: 'defaultDoc',
+    resolvePath: '/defaultDoc/',
+    collapsed: true,      // 默认展开侧边栏
+    capitalizeFirst: true  // 标题首字母大写
+  },
+  {
+    documentRootPath: './docs', // 文档根目录路径
+    scanStartPath: 'privateDoc',
+    resolvePath: '/privateDoc/',
+    collapsed: true,      // 默认展开侧边栏
+    capitalizeFirst: true  // 标题首字母大写
+  }
+];
 
 // 合并配置并导出
 export default defineConfig(
-    withSidebar(vitePressOptions, [
-        vitePressSidebarOptions1, vitePressSidebarOptions2
-    ])
+    withSidebar(vitePressOptions, vitePressSidebarOptions)
 )
