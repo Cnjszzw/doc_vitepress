@@ -8,7 +8,8 @@ const vitePressOptions = {
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/companyDoc/temp.md' }
+      { text: '文档', link: '/defaultDoc/Intro.md' },
+      { text: '隐私', link: '/privateDoc/test.md' }
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
@@ -18,13 +19,31 @@ const vitePressOptions = {
 }
 
 // 侧边栏插件配置
-const vitePressSidebarOptions = {
+const vitePressSidebarOptions0 = {
   documentRootPath: './docs', // 文档根目录路径
+  scanStartPath: 'defaultDoc',
+  resolvePath: '/defaultDoc/',
+  collapsed: true,      // 默认展开侧边栏
+  capitalizeFirst: true  // 标题首字母大写
+}
+const vitePressSidebarOptions1 = {
+  documentRootPath: './docs', // 文档根目录路径
+  scanStartPath: 'defaultDoc',
+  resolvePath: '/defaultDoc/',
+  collapsed: true,      // 默认展开侧边栏
+  capitalizeFirst: true  // 标题首字母大写
+}
+const vitePressSidebarOptions2 = {
+  documentRootPath: './docs', // 文档根目录路径
+  scanStartPath: 'privateDoc',
+  resolvePath: '/privateDoc/',
   collapsed: true,      // 默认展开侧边栏
   capitalizeFirst: true  // 标题首字母大写
 }
 
 // 合并配置并导出
 export default defineConfig(
-    withSidebar(vitePressOptions, vitePressSidebarOptions)
+    withSidebar(vitePressOptions, [
+        vitePressSidebarOptions1, vitePressSidebarOptions2
+    ])
 )
